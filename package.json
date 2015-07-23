@@ -1,0 +1,39 @@
+{
+  "name": "stides.me",
+  "version": "1.0.0",
+  "description": "A blog about web development and design",
+  "main": "index.js",
+  "scripts": {
+    "start": "node dist/index.js",
+    "test": "gulp test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aristidesstaffieri/react-node-isomorphic-blog.git"
+  },
+  "keywords": [
+    "Javascript",
+    "Node",
+    "React",
+    "Angular",
+    "Web",
+    "CSS",
+    "HTML"
+  ],
+  "author": "Aristides Staffieri <aristides@aristidesstaffieri.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/aristidesstaffieri/react-node-isomorphic-blog/issues"
+  },
+  "homepage": "https://github.com/aristidesstaffieri/react-node-isomorphic-blog#readme",
+  "dependencies": {
+    "babel": "^5.8.3",
+    "express": "^4.13.1",
+    "gulp": "^3.9.0",
+    "react": "^0.13.3"
+  },
+  "devDependencies": {
+    "gulp-babel": "^5.1.0",
+    "gulp-develop-server": "^0.4.3"
+  }
+}
