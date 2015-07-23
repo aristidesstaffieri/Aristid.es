@@ -3,3 +3,7 @@ node_js:
   - "0.12"
 matrix:
    fast_finish: true
+before_script:
+  - npm install -g gulp
+  - npm install phantomjs
+  - gulp
