@@ -5,7 +5,7 @@ app.get('/', function (req, res) {
   res.send('Yoo!');
 })
 
-const server = app.listen(22, function () {
+const server = app.listen(3000, function () {
   const host = server.address().address;
   const port = server.address().port;
 
