@@ -1,9 +1,7 @@
 language: node_js
 node_js:
   - "0.12"
-matrix:
-   fast_finish: true
 before_script:
   - npm install -g gulp
-  - npm install phantomjs
-  - gulp
+  - npm install -g gulp-cli
+script: node dist/index.js node tests/index.spec.js
