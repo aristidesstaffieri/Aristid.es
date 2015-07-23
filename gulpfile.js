@@ -1,13 +1,19 @@
 var gulp = require('gulp')
 var babel = require('gulp-babel')
 var server = require('gulp-develop-server')
+var tape = require('gulp-tape')
 
 gulp.task( 'server:start', function() {
-    server.listen( { path: 'dist/index.js' } );
+    server.listen( { path: 'dist/index.js' } )
+})
+
+gulp.task( 'test', function() {
+    return gulp.src('tests/*.js')
+    .pipe(tape())
 })
 
 gulp.task( 'server:restart', function() {
-    gulp.watch( [ 'index.js' ], ['transpile', server.restart] );
+    gulp.watch( [ 'index.js' ], ['transpile', server.restart] )
 })
  
 gulp.task('transpile', function () {
