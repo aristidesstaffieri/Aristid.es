@@ -4,4 +4,4 @@ node_js:
 before_script:
   - npm install -g gulp
   - npm install -g gulp-cli
-script: node dist/index.js
+script: node dist/index.js node tests/index.spec.js
