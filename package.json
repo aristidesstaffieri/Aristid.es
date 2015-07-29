@@ -28,6 +28,7 @@
   "homepage": "https://github.com/aristidesstaffieri/react-node-isomorphic-blog#readme",
   "dependencies": {
     "babel": "^5.8.3",
+    "ejs": "^2.3.3",
     "express": "^4.13.1",
     "gulp": "^3.9.0",
     "gulp-tape": "0.0.1",

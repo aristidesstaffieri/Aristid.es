@@ -22,4 +22,16 @@ gulp.task('transpile', function () {
         .pipe(gulp.dest('dist'))
 })
 
-gulp.task('default', ['transpile', 'server:start', 'server:restart'])
+gulp.task('transpileSrc', function () {
+    return gulp.src('src/**/*.jsx')
+        .pipe(babel())
+        .pipe(gulp.dest('dist'))
+})
+
+gulp.task('transpileBrowser', function () {
+    return gulp.src('src/*.js')
+        .pipe(babel())
+        .pipe(gulp.dest('dist'))
+})
+
+gulp.task('default', ['transpile', 'transpileSrc', 'transpileBrowser', 'server:start', 'server:restart'])

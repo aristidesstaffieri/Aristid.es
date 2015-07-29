@@ -6,15 +6,26 @@ var _express = require('express');
 
 var _express2 = _interopRequireDefault(_express);
 
+var _react = require('react');
+
+var _react2 = _interopRequireDefault(_react);
+
+var App = _react2['default'].createFactory(require('../dist/components/app'));
+
 var app = (0, _express2['default'])();
 
+app.set('view engine', 'ejs');
+app.use(_express2['default']['static'](__dirname + '/dist'));
+app.set('views', __dirname + '/');
+
 app.get('/', function (req, res) {
-  res.send('Yo!');
+	var reactHtml = _react2['default'].renderToString(App({}));
+	res.render('index.ejs', { reactOutput: reactHtml });
 });
 
-var server = app.listen(3000, function () {
-  var host = server.address().address;
-  var port = server.address().port;
+var server = app.listen(80, function () {
+	var host = server.address().address;
+	var port = server.address().port;
 
-  console.log('Blog is up at  http://%s:%s', host, port);
+	console.log('Blog is up at  http://%s:%s', host, port);
 });
