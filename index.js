@@ -1,16 +1,17 @@
 import express from 'express'
 import React from 'react'
+import path from 'path'
 let App = React.createFactory(require('../dist/components/app'))
 
 const app = express()
 
 app.set('view engine', 'ejs')
-app.use(express.static(__dirname + '/dist'))
-app.set('views', __dirname + '/')
+app.use(express.static(path.join(__dirname, '/dist')))
+app.set('views', path.join(__dirname, '/'))
 
 app.get('/', function(req, res){
-    var reactHtml = React.renderToString(App({}))
-    res.render('index.ejs', {reactOutput: reactHtml})
+	let reactHtml = React.renderToString(App({}))
+	res.render('index.ejs', {reactOutput: reactHtml})
 })
 
 const server = app.listen(80, function () {
