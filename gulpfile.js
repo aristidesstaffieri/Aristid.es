@@ -16,21 +16,9 @@ gulp.task( 'test', function() {
 gulp.task( 'server:restart', function() {
     gulp.watch( [ 'index.js' ], ['transpile', server.restart] )
 })
- 
+
 gulp.task('transpile', function () {
-    return gulp.src('index.js')
-        .pipe(babel())
-        .pipe(gulp.dest('dist'))
-})
-
-gulp.task('transpileSrc', function () {
-    return gulp.src('src/**/*.jsx')
-        .pipe(babel())
-        .pipe(gulp.dest('dist'))
-})
-
-gulp.task('transpileBrowser', function () {
-    return gulp.src('src/*.js')
+    return gulp.src(['index.js', 'src/**/*.jsx', 'src/*.js'])
         .pipe(babel())
         .pipe(gulp.dest('dist'))
 })
@@ -42,4 +30,4 @@ gulp.task('lint', function () {
         .pipe(eslint.failOnError())
 })
 
-gulp.task('default', ['transpile', 'transpileSrc', 'transpileBrowser', 'server:start', 'server:restart', 'lint'])
+gulp.task('default', ['transpile', 'server:start', 'server:restart', 'lint'])
