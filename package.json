@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "test": "node tests/index.spec.js"
+    "test": "mocha tests --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -27,18 +27,22 @@
   },
   "homepage": "https://github.com/aristidesstaffieri/react-node-isomorphic-blog#readme",
   "dependencies": {
-    "babel": "5.8.3",
+    "babel": "5.1.11",
     "ejs": "2.3.3",
     "eslint-plugin-react": "3.1.0",
     "express": "4.13.1",
     "gulp": "3.9.0",
     "gulp-eslint": "0.15.0",
     "gulp-tape": "0.0.1",
-    "react": "0.13.3",
-    "tape": "4.0.1"
+    "react": "0.13.3"
   },
   "devDependencies": {
+    "babel-core": "^5.8.22",
+    "chai": "^3.2.0",
     "gulp-babel": "5.1.0",
-    "gulp-develop-server": "0.4.3"
+    "gulp-develop-server": "0.4.3",
+    "jsdom": "3.1.2",
+    "mocha": "^2.2.5",
+    "sinon": "^1.16.1"
   }
 }

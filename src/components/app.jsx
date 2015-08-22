@@ -1,13 +1,25 @@
-import React from 'react'
+import React, {PropTypes as T} from 'react'
 
-var App = React.createClass({
-	render: function() {
+class App extends React.Component{
+	returnTheProps(val) {
+		this.someOtherFunction(val)
+	}
+
+	someOtherFunction(val) {
+		return val
+	}
+
+	render() {
 		return (
 			<div>
-				hi!
+				hi! {this.props.name}
 			</div>
 		)
 	}
-})
+}
+
+App.propTypes = {
+	name: T.string.isRequired
+}
 
 export default App
