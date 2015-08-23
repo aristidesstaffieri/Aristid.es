@@ -34,7 +34,23 @@ var Body = (function (_Component) {
 	_createClass(Body, [{
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement('div', { style: styles.container });
+			return _react2['default'].createElement(
+				'div',
+				{ style: styles.container },
+				_react2['default'].createElement(
+					'div',
+					{ style: styles.postContainer },
+					_react2['default'].createElement(
+						'a',
+						{ href: '#' },
+						_react2['default'].createElement(
+							'h1',
+							{ style: styles.postTitle },
+							'First Blog Post'
+						)
+					)
+				)
+			);
 		}
 	}]);
 
@@ -45,11 +61,22 @@ var styles = {
 	container: {
 		width: '80%',
 		height: '500px',
-		display: 'inline-block'
+		display: 'inline-block',
+		position: 'absolute',
+		top: 0,
+		right: 0
+	},
+	postTitle: {
+		fontFamily: 'Source Sans Pro',
+		fontSize: '3em',
+		color: '#272727'
+	},
+	postContainer: {
+		marginLeft: '10%'
 	}
 };
 
-Body.propTypes = {};
+Body.displayName = 'Body';
 
 exports['default'] = (0, _radium2['default'])(Body);
 module.exports = exports['default'];

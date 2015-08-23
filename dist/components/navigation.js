@@ -45,6 +45,39 @@ var Nav = (function (_Component) {
 						{ style: styles.title },
 						'Aristides'
 					)
+				),
+				_react2['default'].createElement(
+					'div',
+					{ style: styles.descContainer },
+					_react2['default'].createElement(
+						'h5',
+						{ style: styles.desc },
+						'A blog about the web.'
+					),
+					_react2['default'].createElement(
+						'div',
+						{ style: styles.connectContainer },
+						_react2['default'].createElement(
+							'a',
+							{ href: '#', style: styles.iconLink, key: 'a' },
+							_react2['default'].createElement('i', { style: styles.socialIcon, className: 'fa fa-twitter', key: '1' })
+						),
+						_react2['default'].createElement(
+							'a',
+							{ href: '#', style: styles.iconLink, key: 'b' },
+							_react2['default'].createElement('i', { style: styles.socialIcon, className: 'fa fa-instagram', key: '2' })
+						),
+						_react2['default'].createElement(
+							'a',
+							{ href: '#', style: styles.iconLink, key: 'c' },
+							_react2['default'].createElement('i', { style: styles.socialIcon, className: 'fa fa-medium', key: '3' })
+						),
+						_react2['default'].createElement(
+							'a',
+							{ href: '#', style: styles.iconLink, key: 'd' },
+							_react2['default'].createElement('i', { style: styles.lastIcon, className: 'fa fa-envelope-o', key: '4' })
+						)
+					)
 				)
 			);
 		}
@@ -57,23 +90,57 @@ var styles = {
 	container: {
 		width: '20%',
 		position: 'absolute',
-		top: '0',
-		bottom: '0',
+		top: 0,
+		bottom: 0,
 		display: 'inline-block',
 		background: '#272727'
 	},
 	title: {
 		fontFamily: 'Dancing Script',
 		color: '#fff',
-		fontSize: '3em',
+		fontSize: '4vw',
 		textShadow: '0px 2px 1px #4d4d4d'
 	},
 	titleContainer: {
 		textAlign: 'center'
+	},
+	descContainer: {
+		marginTop: '500px',
+		textAlign: 'center'
+	},
+	desc: {
+		fontFamily: 'Source Sans Pro',
+		color: '#fff',
+		fontSize: '1.3vw'
+	},
+	connectContainer: {
+		textAlign: 'center',
+		paddingLeft: '15%',
+		paddingRight: '15%'
+	},
+	socialIcon: {
+		color: '#fff',
+		float: 'left',
+		paddingRight: '20%',
+		opacity: 0.5,
+
+		state: [{ hover: {
+				opacity: 1
+			} }]
+	},
+	lastIcon: {
+		paddingRight: '0',
+		color: '#fff',
+		float: 'left',
+		opacity: 0.5,
+
+		state: [{ hover: {
+				opacity: 1
+			} }]
 	}
 };
 
-Nav.propTypes = {};
+Nav.displayName = 'Navigation';
 
 exports['default'] = (0, _radium2['default'])(Nav);
 module.exports = exports['default'];
