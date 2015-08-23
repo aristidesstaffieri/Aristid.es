@@ -1,7 +1,9 @@
 import express from 'express'
 import React from 'react'
 import path from 'path'
-const App = React.createFactory(require('../dist/components/app'))
+
+import Router from 'react-router'
+import routes from './routes'
 
 const app = express()
 
@@ -10,8 +12,10 @@ app.use(express.static(path.join(__dirname, '/dist')))
 app.set('views', path.join(__dirname, '/'))
 
 app.get('/', function(req, res){
-	const reactHtml = React.renderToString(App({}))
-	res.render('index.ejs', {reactOutput: reactHtml})
+	Router.run(routes, req.path, function(Handler) {
+		const reactHtml = React.renderToString(React.createElement(Handler))
+		res.render('index.ejs', {reactOutput: reactHtml})
+	})
 })
 
 const server = app.listen(80, function () {

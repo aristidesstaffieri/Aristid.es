@@ -1,13 +1,16 @@
 import React, {PropTypes, Component} from 'react'
 import Radium from 'radium'
 
+import Router from 'react-router'
+const RouteHandler = Router.RouteHandler
+
 class Body extends Component{
 
 	render() {
 		return (
 			<div style={styles.container}>
 				<div style={styles.postContainer}>
-					<a href="#"><h1 style={styles.postTitle}>First Blog Post</h1></a>
+					<RouteHandler/>
 				</div>
 			</div>
 		)
@@ -22,11 +25,6 @@ const styles = {
 		position: 'absolute',
 		top: 0,
 		right: 0
-	},
-	postTitle: {
-		fontFamily: 'Source Sans Pro',
-		fontSize: '3em',
-		color: '#272727',
 	},
 	postContainer: {
 		marginLeft: '10%'

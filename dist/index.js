@@ -14,7 +14,13 @@ var _path = require('path');
 
 var _path2 = _interopRequireDefault(_path);
 
-var App = _react2['default'].createFactory(require('../dist/components/app'));
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var _routes = require('./routes');
+
+var _routes2 = _interopRequireDefault(_routes);
 
 var app = (0, _express2['default'])();
 
@@ -23,8 +29,10 @@ app.use(_express2['default']['static'](_path2['default'].join(__dirname, '/dist'
 app.set('views', _path2['default'].join(__dirname, '/'));
 
 app.get('/', function (req, res) {
-	var reactHtml = _react2['default'].renderToString(App({}));
-	res.render('index.ejs', { reactOutput: reactHtml });
+	_reactRouter2['default'].run(_routes2['default'], req.path, function (Handler) {
+		var reactHtml = _react2['default'].renderToString(_react2['default'].createElement(Handler));
+		res.render('index.ejs', { reactOutput: reactHtml });
+	});
 });
 
 var server = app.listen(80, function () {

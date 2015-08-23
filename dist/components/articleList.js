@@ -28,48 +28,42 @@ var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
 var RouteHandler = _reactRouter2['default'].RouteHandler;
 
-var Body = (function (_Component) {
-	_inherits(Body, _Component);
+var ArticleList = (function (_Component) {
+	_inherits(ArticleList, _Component);
 
-	function Body() {
-		_classCallCheck(this, Body);
+	function ArticleList() {
+		_classCallCheck(this, ArticleList);
 
-		_get(Object.getPrototypeOf(Body.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(ArticleList.prototype), 'constructor', this).apply(this, arguments);
 	}
 
-	_createClass(Body, [{
+	_createClass(ArticleList, [{
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement(
-				'div',
-				{ style: styles.container },
+				'a',
+				{ href: '#' },
 				_react2['default'].createElement(
-					'div',
-					{ style: styles.postContainer },
-					_react2['default'].createElement(RouteHandler, null)
+					'h1',
+					{ style: styles.postTitle },
+					'First Blog Post'
 				)
 			);
 		}
 	}]);
 
-	return Body;
+	return ArticleList;
 })(_react.Component);
 
 var styles = {
-	container: {
-		width: '80%',
-		height: '500px',
-		display: 'inline-block',
-		position: 'absolute',
-		top: 0,
-		right: 0
-	},
-	postContainer: {
-		marginLeft: '10%'
+	postTitle: {
+		fontFamily: 'Source Sans Pro',
+		fontSize: '3em',
+		color: '#272727'
 	}
 };
 
-Body.displayName = 'Body';
+ArticleList.displayName = 'ArticleList';
 
-exports['default'] = (0, _radium2['default'])(Body);
+exports['default'] = (0, _radium2['default'])(ArticleList);
 module.exports = exports['default'];
