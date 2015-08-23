@@ -18,6 +18,16 @@ app.get('/', function(req, res){
 	})
 })
 
+app.get('/articles/:id', function(req, res){
+	let aid = req.params.id
+
+	Router.run(routes, `/articles/${aid}`, function(Handler) {
+		const reactHtml = React.renderToString(React.createElement(Handler))
+		res.render('index.ejs', {reactOutput: reactHtml})
+	})
+})
+
+
 const server = app.listen(80, function () {
 	const host = server.address().address
 	const port = server.address().port

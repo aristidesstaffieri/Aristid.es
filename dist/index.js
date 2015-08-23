@@ -35,6 +35,15 @@ app.get('/', function (req, res) {
 	});
 });
 
+app.get('/articles/:id', function (req, res) {
+	var aid = req.params.id;
+
+	_reactRouter2['default'].run(_routes2['default'], '/articles/' + aid, function (Handler) {
+		var reactHtml = _react2['default'].renderToString(_react2['default'].createElement(Handler));
+		res.render('index.ejs', { reactOutput: reactHtml });
+	});
+});
+
 var server = app.listen(80, function () {
 	var host = server.address().address;
 	var port = server.address().port;

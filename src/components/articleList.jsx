@@ -3,12 +3,13 @@ import Radium from 'radium'
 
 import Router from 'react-router'
 const RouteHandler = Router.RouteHandler
+const Link = Router.Link
 
 class ArticleList extends Component{
 
 	render() {
 		return (
-			<a href="#"><h1 style={styles.postTitle}>First Blog Post</h1></a>
+			<Link to="article" params={{id: 'test_article'}}><h1 style={styles.postTitle}>First Blog Post</h1></Link>
 		)
 	}
 }

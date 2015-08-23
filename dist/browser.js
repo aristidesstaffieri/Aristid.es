@@ -6,10 +6,6 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
-var _componentsApp = require('/components/app');
-
-var _componentsApp2 = _interopRequireDefault(_componentsApp);
-
 var _reactRouter = require('react-router');
 
 var _reactRouter2 = _interopRequireDefault(_reactRouter);

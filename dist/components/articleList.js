@@ -27,6 +27,7 @@ var _reactRouter = require('react-router');
 var _reactRouter2 = _interopRequireDefault(_reactRouter);
 
 var RouteHandler = _reactRouter2['default'].RouteHandler;
+var Link = _reactRouter2['default'].Link;
 
 var ArticleList = (function (_Component) {
 	_inherits(ArticleList, _Component);
@@ -41,8 +42,8 @@ var ArticleList = (function (_Component) {
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement(
-				'a',
-				{ href: '#' },
+				Link,
+				{ to: 'article', params: { id: 'test_article' } },
 				_react2['default'].createElement(
 					'h1',
 					{ style: styles.postTitle },
