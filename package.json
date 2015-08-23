@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "test": "mocha tests --compilers js:babel-core/register"
+    "test": "mocha tests/components --compilers js:babel-core/register"
   },
   "repository": {
     "type": "git",
@@ -43,6 +43,7 @@
     "gulp-develop-server": "0.4.3",
     "jsdom": "3.1.2",
     "mocha": "^2.2.5",
+    "radium": "^0.13.7",
     "sinon": "^1.16.1"
   }
 }

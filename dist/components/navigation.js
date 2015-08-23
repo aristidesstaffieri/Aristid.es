@@ -22,44 +22,58 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _navigation = require('./navigation');
+var Nav = (function (_Component) {
+	_inherits(Nav, _Component);
 
-var _navigation2 = _interopRequireDefault(_navigation);
+	function Nav() {
+		_classCallCheck(this, Nav);
 
-var _body = require('./body');
-
-var _body2 = _interopRequireDefault(_body);
-
-var App = (function (_Component) {
-	_inherits(App, _Component);
-
-	function App() {
-		_classCallCheck(this, App);
-
-		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(Nav.prototype), 'constructor', this).apply(this, arguments);
 	}
 
-	_createClass(App, [{
+	_createClass(Nav, [{
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
 				{ style: styles.container },
-				_react2['default'].createElement(_navigation2['default'], null),
-				_react2['default'].createElement(_body2['default'], null)
+				_react2['default'].createElement(
+					'div',
+					{ style: styles.titleContainer },
+					_react2['default'].createElement(
+						'h1',
+						{ style: styles.title },
+						'Aristides'
+					)
+				)
 			);
 		}
 	}]);
 
-	return App;
+	return Nav;
 })(_react.Component);
 
 var styles = {
 	container: {
-		width: '100%',
-		height: '100%'
+		width: '20%',
+		position: 'absolute',
+		top: '0',
+		bottom: '0',
+		display: 'inline-block',
+		background: '#272727'
+	},
+	title: {
+		fontFamily: 'Dancing Script',
+		color: '#fff',
+		fontSize: '3em',
+		textShadow: '0px 2px 1px #4d4d4d'
+	},
+	titleContainer: {
+		textAlign: 'center'
 	}
 };
 
-exports['default'] = (0, _radium2['default'])(App);
+Nav.propTypes = {};
+
+exports['default'] = (0, _radium2['default'])(Nav);
 module.exports = exports['default'];

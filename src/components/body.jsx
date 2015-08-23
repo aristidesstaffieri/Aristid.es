@@ -1,15 +1,12 @@
 import React, {PropTypes, Component} from 'react'
 import Radium from 'radium'
-import Nav from './navigation'
-import Body from './body'
 
-class App extends Component{
+class Body extends Component{
 
 	render() {
 		return (
 			<div style={styles.container}>
-				<Nav />
-				<Body />
+				
 			</div>
 		)
 	}
@@ -17,9 +14,14 @@ class App extends Component{
 
 const styles = {
 	container: {
-		width: '100%',
-		height: '100%',
+		width: '80%',
+		height: '500px',
+		display: 'inline-block',
 	}
 }
 
-export default Radium(App)
+Body.propTypes = {
+
+}
+
+export default Radium(Body)

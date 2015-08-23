@@ -22,44 +22,34 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _navigation = require('./navigation');
+var Body = (function (_Component) {
+	_inherits(Body, _Component);
 
-var _navigation2 = _interopRequireDefault(_navigation);
+	function Body() {
+		_classCallCheck(this, Body);
 
-var _body = require('./body');
-
-var _body2 = _interopRequireDefault(_body);
-
-var App = (function (_Component) {
-	_inherits(App, _Component);
-
-	function App() {
-		_classCallCheck(this, App);
-
-		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(Body.prototype), 'constructor', this).apply(this, arguments);
 	}
 
-	_createClass(App, [{
+	_createClass(Body, [{
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement(
-				'div',
-				{ style: styles.container },
-				_react2['default'].createElement(_navigation2['default'], null),
-				_react2['default'].createElement(_body2['default'], null)
-			);
+			return _react2['default'].createElement('div', { style: styles.container });
 		}
 	}]);
 
-	return App;
+	return Body;
 })(_react.Component);
 
 var styles = {
 	container: {
-		width: '100%',
-		height: '100%'
+		width: '80%',
+		height: '500px',
+		display: 'inline-block'
 	}
 };
 
-exports['default'] = (0, _radium2['default'])(App);
+Body.propTypes = {};
+
+exports['default'] = (0, _radium2['default'])(Body);
 module.exports = exports['default'];
