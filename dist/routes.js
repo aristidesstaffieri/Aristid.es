@@ -1,3 +1,4 @@
+/*eslint-disable no-unused-vars*/
 'use strict';
 
 Object.defineProperty(exports, '__esModule', {
@@ -9,6 +10,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'd
 var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
+
+/*eslint-enable no-unused-vars*/
 
 var _reactRouter = require('react-router');
 

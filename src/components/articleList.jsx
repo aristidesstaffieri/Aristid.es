@@ -8,8 +8,15 @@ const Link = Router.Link
 class ArticleList extends Component{
 
 	render() {
+		let {articles} = this.props
 		return (
-			<Link to="article" params={{id: 'test_article'}}><h1 style={styles.postTitle}>First Blog Post</h1></Link>
+			<ul>
+			{
+				articles.map(function(article) {
+					return (<li key={article.id}><Link to="article" params={{id: article.id}}><h1 style={styles.postTitle}>{article.title}</h1></Link></li>)
+				})
+			}
+			</ul>
 		)
 	}
 }
@@ -23,5 +30,11 @@ const styles = {
 }
 
 ArticleList.displayName = 'ArticleList'
+ArticleList.PropTypes = {
+	articles: PropTypes.array
+}
+ArticleList.defaultProps = {
+	articles: []
+}
 
 export default Radium(ArticleList)

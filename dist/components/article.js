@@ -22,11 +22,15 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
-var _reactRouter = require('react-router');
+var _fs = require('fs');
 
-var _reactRouter2 = _interopRequireDefault(_reactRouter);
+var _fs2 = _interopRequireDefault(_fs);
 
-var Link = _reactRouter2['default'].Link;
+var _remarkable = require('remarkable');
+
+var _remarkable2 = _interopRequireDefault(_remarkable);
+
+var md = new _remarkable2['default']();
 
 var Article = (function (_Component) {
 	_inherits(Article, _Component);
@@ -38,13 +42,19 @@ var Article = (function (_Component) {
 	}
 
 	_createClass(Article, [{
+		key: 'getArticle',
+		value: function getArticle(articleId) {
+			var article = _fs2['default'].readFileSync('./articles/' + articleId + '.md', { encoding: 'utf8' });
+			return {
+				id: articleId,
+				content: md.render(article)
+			};
+		}
+	}, {
 		key: 'render',
 		value: function render() {
-			return _react2['default'].createElement(
-				'h3',
-				null,
-				'Test Article!'
-			);
+			var article = this.getArticle('test_article');
+			return _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: article.content } });
 		}
 	}]);
 

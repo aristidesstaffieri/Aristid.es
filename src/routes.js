@@ -1,4 +1,6 @@
+/*eslint-disable no-unused-vars*/
 import React from 'react'
+/*eslint-enable no-unused-vars*/
 import Router from 'react-router'
 const Route = Router.Route
 const DefaultRoute = Router.DefaultRoute

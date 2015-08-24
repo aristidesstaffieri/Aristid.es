@@ -41,14 +41,26 @@ var ArticleList = (function (_Component) {
 	_createClass(ArticleList, [{
 		key: 'render',
 		value: function render() {
+			var articles = this.props.articles;
+
 			return _react2['default'].createElement(
-				Link,
-				{ to: 'article', params: { id: 'test_article' } },
-				_react2['default'].createElement(
-					'h1',
-					{ style: styles.postTitle },
-					'First Blog Post'
-				)
+				'ul',
+				null,
+				articles.map(function (article) {
+					return _react2['default'].createElement(
+						'li',
+						{ key: article.id },
+						_react2['default'].createElement(
+							Link,
+							{ to: 'article', params: { id: article.id } },
+							_react2['default'].createElement(
+								'h1',
+								{ style: styles.postTitle },
+								article.title
+							)
+						)
+					);
+				})
 			);
 		}
 	}]);
@@ -65,6 +77,12 @@ var styles = {
 };
 
 ArticleList.displayName = 'ArticleList';
+ArticleList.PropTypes = {
+	articles: _react.PropTypes.array
+};
+ArticleList.defaultProps = {
+	articles: []
+};
 
 exports['default'] = (0, _radium2['default'])(ArticleList);
 module.exports = exports['default'];

@@ -11,6 +11,7 @@ app.set('view engine', 'ejs')
 app.use(express.static(path.join(__dirname, '/dist')))
 app.set('views', path.join(__dirname, '/'))
 
+// ROUTES
 app.get('/', function(req, res){
 	Router.run(routes, req.path, function(Handler) {
 		const reactHtml = React.renderToString(React.createElement(Handler))

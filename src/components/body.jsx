@@ -5,12 +5,16 @@ import Router from 'react-router'
 const RouteHandler = Router.RouteHandler
 
 class Body extends Component{
+	constructor(props) {
+		super(props)
+	}
 
 	render() {
+		let {props} = this
 		return (
 			<div style={styles.container}>
 				<div style={styles.postContainer}>
-					<RouteHandler/>
+					<RouteHandler {...props}/>
 				</div>
 			</div>
 		)
@@ -32,5 +36,11 @@ const styles = {
 }
 
 Body.displayName = 'Body'
+Body.PropTypes = {
+	articles: PropTypes.array
+}
+Body.defaultProps = {
+	articles: []
+}
 
 export default Radium(Body)

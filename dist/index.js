@@ -28,6 +28,7 @@ app.set('view engine', 'ejs');
 app.use(_express2['default']['static'](_path2['default'].join(__dirname, '/dist')));
 app.set('views', _path2['default'].join(__dirname, '/'));
 
+// ROUTES
 app.get('/', function (req, res) {
 	_reactRouter2['default'].run(_routes2['default'], req.path, function (Handler) {
 		var reactHtml = _react2['default'].renderToString(_react2['default'].createElement(Handler));

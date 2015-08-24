@@ -31,22 +31,24 @@ var RouteHandler = _reactRouter2['default'].RouteHandler;
 var Body = (function (_Component) {
 	_inherits(Body, _Component);
 
-	function Body() {
+	function Body(props) {
 		_classCallCheck(this, Body);
 
-		_get(Object.getPrototypeOf(Body.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(Body.prototype), 'constructor', this).call(this, props);
 	}
 
 	_createClass(Body, [{
 		key: 'render',
 		value: function render() {
+			var props = this.props;
+
 			return _react2['default'].createElement(
 				'div',
 				{ style: styles.container },
 				_react2['default'].createElement(
 					'div',
 					{ style: styles.postContainer },
-					_react2['default'].createElement(RouteHandler, null)
+					_react2['default'].createElement(RouteHandler, props)
 				)
 			);
 		}
@@ -70,6 +72,12 @@ var styles = {
 };
 
 Body.displayName = 'Body';
+Body.PropTypes = {
+	articles: _react.PropTypes.array
+};
+Body.defaultProps = {
+	articles: []
+};
 
 exports['default'] = (0, _radium2['default'])(Body);
 module.exports = exports['default'];

@@ -30,23 +30,55 @@ var _body = require('./body');
 
 var _body2 = _interopRequireDefault(_body);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+var FILES_DIR = './articles/';
+
 var App = (function (_Component) {
 	_inherits(App, _Component);
 
-	function App() {
+	function App(props) {
 		_classCallCheck(this, App);
 
-		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).apply(this, arguments);
+		_get(Object.getPrototypeOf(App.prototype), 'constructor', this).call(this, props);
+		this.state = { articles: this.serverGetArticles() };
 	}
 
 	_createClass(App, [{
+		key: 'serverGetArticles',
+		value: function serverGetArticles() {
+			var _this = this;
+
+			var articles = _fs2['default'].readdirSync(FILES_DIR);
+			var list = [];
+
+			articles.forEach(function (article) {
+				list.push({
+					id: article.replace('.md', ''),
+					title: _this.formatTitle(article.replace('.md', '')),
+					content: ''
+				});
+			});
+			return list;
+		}
+	}, {
+		key: 'formatTitle',
+		value: function formatTitle(article) {
+			var articleTitle = article.replace('_', ' ');
+			return articleTitle.replace(/\w\S*/g, function (txt) {
+				return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+			});
+		}
+	}, {
 		key: 'render',
 		value: function render() {
 			return _react2['default'].createElement(
 				'div',
 				{ style: styles.container },
 				_react2['default'].createElement(_navigation2['default'], null),
-				_react2['default'].createElement(_body2['default'], null)
+				_react2['default'].createElement(_body2['default'], { articles: this.state.articles })
 			);
 		}
 	}]);
