@@ -69,4 +69,4 @@ Article.displayName = 'Article';
 
 exports['default'] = (0, _radium2['default'])(Article);
 module.exports = exports['default'];
-//# sourceMappingURL=../../maps/components/article.js.map
+//# sourceMappingURL=../maps/article.js.map

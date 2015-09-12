@@ -81,4 +81,4 @@ Body.defaultProps = {
 
 exports['default'] = (0, _radium2['default'])(Body);
 module.exports = exports['default'];
-//# sourceMappingURL=../../maps/components/body.js.map
+//# sourceMappingURL=../maps/body.js.map
