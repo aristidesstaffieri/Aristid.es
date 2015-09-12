@@ -42,4 +42,4 @@ var routes = _react2['default'].createElement(
 
 exports['default'] = routes;
 module.exports = exports['default'];
-//# sourceMappingURL=routes.js.map
+//# sourceMappingURL=../maps/routes.js.map

@@ -100,4 +100,4 @@ ArticleList.defaultProps = {
 
 exports['default'] = (0, _radium2['default'])(ArticleList);
 module.exports = exports['default'];
-//# sourceMappingURL=../components/articleList.js.map
+//# sourceMappingURL=../../maps/components/articleList.js.map

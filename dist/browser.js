@@ -22,4 +22,4 @@ var mountNode = document.getElementById('react-main-mount');
 _reactRouter2['default'].run(_routes2['default'], _reactRouter2['default'].HistoryLocation, function (Handler) {
 	_react2['default'].render(_react2['default'].createElement(Handler, null), mountNode);
 });
-//# sourceMappingURL=browser.js.map
+//# sourceMappingURL=../maps/browser.js.map

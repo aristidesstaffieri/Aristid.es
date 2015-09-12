@@ -1,23 +1,31 @@
-const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
-const source = require('vinyl-source-stream');
-const buffer = require('vinyl-buffer');
-const browserify = require('browserify');
-const watchify = require('watchify');
-const babel = require('gulp-babel');
-const eslint = require('gulp-eslint')
+import gulp from 'gulp'
+import sourcemaps from 'gulp-sourcemaps'
+import browserSync from 'browser-sync'
+import babel from 'gulp-babel'
+import eslint from 'gulp-eslint'
 
-gulp.task('babs', function () {
+gulp.task('browser-sync', function() {
+    browserSync({
+        proxy: "localhost:80/"
+    })
+})
+
+gulp.task('babs', () => {
     return gulp.src(['index.js', './src/**/*.js', './src/**/*.jsx', './src/*.js', './src/*.jsx'])
         .pipe(sourcemaps.init())
         .pipe(babel())
-        .pipe(sourcemaps.write("."))
-        .pipe(gulp.dest('dist'));
+        .pipe(sourcemaps.write("../maps"))
+        .pipe(gulp.dest('dist')
+        .pipe(browserSync.reload({stream:true})));
 })
 
-gulp.task('lint', function () {
+gulp.task('lint', () => {
     return gulp.src(['index.js', 'tests/index.spec.js', 'src/*.js', 'src/**/jsx'])
     .pipe(eslint())
     .pipe(eslint.format())
     .pipe(eslint.failOnError())
+})
+
+gulp.task('default', ['babs', 'browser-sync'], () => {
+    gulp.watch(['index.js', './src/**/*.jsx'], ['babs'])
 })
