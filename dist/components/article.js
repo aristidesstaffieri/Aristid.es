@@ -54,7 +54,11 @@ var Article = (function (_Component) {
 		key: 'render',
 		value: function render() {
 			var article = this.getArticle('test_article');
-			return _react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: article.content } });
+			return _react2['default'].createElement(
+				'div',
+				null,
+				_react2['default'].createElement('div', { dangerouslySetInnerHTML: { __html: article.content } })
+			);
 		}
 	}]);
 

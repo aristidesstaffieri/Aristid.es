@@ -22,6 +22,12 @@ var _radium = require('radium');
 
 var _radium2 = _interopRequireDefault(_radium);
 
+var _reactRouter = require('react-router');
+
+var _reactRouter2 = _interopRequireDefault(_reactRouter);
+
+var Link = _reactRouter2['default'].Link;
+
 var Nav = (function (_Component) {
 	_inherits(Nav, _Component);
 
@@ -41,9 +47,13 @@ var Nav = (function (_Component) {
 					'div',
 					{ style: styles.titleContainer },
 					_react2['default'].createElement(
-						'h1',
-						{ style: styles.title },
-						'Aristides'
+						Link,
+						{ to: 'home' },
+						_react2['default'].createElement(
+							'h1',
+							{ style: styles.title },
+							'Aristides'
+						)
 					)
 				),
 				_react2['default'].createElement(
@@ -121,22 +131,12 @@ var styles = {
 	socialIcon: {
 		color: '#fff',
 		float: 'left',
-		paddingRight: '20%',
-		opacity: 0.5,
-
-		state: [{ hover: {
-				opacity: 1
-			} }]
+		paddingRight: '20%'
 	},
 	lastIcon: {
 		paddingRight: '0',
 		color: '#fff',
-		float: 'left',
-		opacity: 0.5,
-
-		state: [{ hover: {
-				opacity: 1
-			} }]
+		float: 'left'
 	}
 };
 

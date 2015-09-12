@@ -1,13 +1,16 @@
 import React, {PropTypes, Component} from 'react'
 import Radium from 'radium'
 
+import Router from 'react-router'
+const Link = Router.Link
+
 class Nav extends Component{
 
 	render() {
 		return (
 			<div style={styles.container}>
 				<div style={styles.titleContainer}>
-					<h1 style={styles.title}>Aristides</h1>
+					<Link to="home"><h1 style={styles.title}>Aristides</h1></Link>
 				</div>
 				<div style={styles.descContainer}>
 					<h5 style={styles.desc}>A blog about the web.</h5>
@@ -58,25 +61,11 @@ const styles = {
 		color: '#fff',
 		float: 'left',
 		paddingRight: '20%',
-		opacity: 0.5,
-
-		state: [
-			{ hover: {
-				opacity: 1
-			}}
-		]
 	},
 	lastIcon: {
 		paddingRight: '0',
 		color: '#fff',
 		float: 'left',
-		opacity: 0.5,
-
-		state: [
-			{ hover: {
-				opacity: 1
-			}}
-		]
 	}
 }
 

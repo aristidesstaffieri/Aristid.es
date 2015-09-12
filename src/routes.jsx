@@ -12,7 +12,7 @@ import App from './components/app'
 const routes = (
 	<Route handler={App}>
 		<DefaultRoute handler={ArticleList}/>
-		<Route path="/" handler={ArticleList}/>
+		<Route name="home" path="/" handler={ArticleList}/>
 		<Route name="article" path="/articles/:id" handler={Article}/>
 	</Route>
 )

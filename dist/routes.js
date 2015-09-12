@@ -36,7 +36,7 @@ var routes = _react2['default'].createElement(
 	Route,
 	{ handler: _componentsApp2['default'] },
 	_react2['default'].createElement(DefaultRoute, { handler: _componentsArticleList2['default'] }),
-	_react2['default'].createElement(Route, { path: '/', handler: _componentsArticleList2['default'] }),
+	_react2['default'].createElement(Route, { name: 'home', path: '/', handler: _componentsArticleList2['default'] }),
 	_react2['default'].createElement(Route, { name: 'article', path: '/articles/:id', handler: _componentsArticle2['default'] })
 );
 

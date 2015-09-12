@@ -22,6 +22,14 @@ var _routes = require('./routes');
 
 var _routes2 = _interopRequireDefault(_routes);
 
+var _fs = require('fs');
+
+var _fs2 = _interopRequireDefault(_fs);
+
+require('babel/register');
+
+var clientApp = _fs2['default'].readFileSync('dist/browser.js', { encoding: 'utf8' });
+
 var app = (0, _express2['default'])();
 
 app.set('view engine', 'ejs');
@@ -32,7 +40,9 @@ app.set('views', _path2['default'].join(__dirname, '/'));
 app.get('/', function (req, res) {
 	_reactRouter2['default'].run(_routes2['default'], req.path, function (Handler) {
 		var reactHtml = _react2['default'].renderToString(_react2['default'].createElement(Handler));
-		res.render('index.ejs', { reactOutput: reactHtml });
+		res.render('index.ejs', {
+			reactOutput: reactHtml
+		});
 	});
 });
 
@@ -41,13 +51,20 @@ app.get('/articles/:id', function (req, res) {
 
 	_reactRouter2['default'].run(_routes2['default'], '/articles/' + aid, function (Handler) {
 		var reactHtml = _react2['default'].renderToString(_react2['default'].createElement(Handler));
-		res.render('index.ejs', { reactOutput: reactHtml });
+		res.render('index.ejs', {
+			reactOutput: reactHtml
+		});
 	});
+});
+
+// CLIENT APP ROUTE
+app.get('/browser.js', function (req, res) {
+	res.send(clientApp);
 });
 
 var server = app.listen(80, function () {
 	var host = server.address().address;
 	var port = server.address().port;
 
-	console.log('Blog is up at  http://%s:%s', host, port);
+	console.log('🌎  Blog is up at  http://%s:%s', host, port);
 });

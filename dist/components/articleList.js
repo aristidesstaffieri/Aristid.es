@@ -55,9 +55,14 @@ var ArticleList = (function (_Component) {
 							{ to: 'article', params: { id: article.id } },
 							_react2['default'].createElement(
 								'h1',
-								{ style: styles.postTitle },
+								{ style: styles.postTitle, className: 'article-title' },
 								article.title
 							)
+						),
+						_react2['default'].createElement(
+							'h4',
+							{ style: styles.postDate },
+							'August, 21st, 2015'
 						)
 					);
 				})
@@ -73,6 +78,15 @@ var styles = {
 		fontFamily: 'Source Sans Pro',
 		fontSize: '3em',
 		color: '#272727'
+	},
+	postDate: {
+		fontSize: '0.8em',
+		color: '#a3a3a3',
+		fontStyle: 'italic',
+		fontFamily: 'Helvetica',
+		fontWeight: 100,
+		marginTop: '-25px'
+
 	}
 };
 

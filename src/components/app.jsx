@@ -9,7 +9,7 @@ const FILES_DIR = './articles/'
 class App extends Component{
 	constructor(props) {
 		super(props)
-		this.state = {articles: this.serverGetArticles()}
+		this.state = { articles: this.serverGetArticles() }
 	}
 
 	serverGetArticles() {
@@ -28,10 +28,10 @@ class App extends Component{
 
 	formatTitle(article) {
 		let articleTitle = article.replace('_', ' ')
-		 return articleTitle.replace(/\w\S*/g, 
-		 	function(txt){
-		 		return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
-		 	})
+		return articleTitle.replace(/\w\S*/g, 
+			function(txt){
+				return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+			})
 	}
 
 	render() {
@@ -40,7 +40,7 @@ class App extends Component{
 				<Nav />
 				<Body articles={this.state.articles}/>
 			</div>
-		)
+			)
 	}
 }
 
