@@ -31,7 +31,7 @@ gulp.task('browserify', function() {
     return browserify('./dist/browser.js')
         .bundle()
         .pipe(source('browser.js'))
-        .pipe(gulp.dest('./dist/'));
+        .pipe(gulp.dest('./dist/'))
 })
 
-gulp.task('default', ['transpile', 'browserify', 'server:start', 'server:restart', 'lint'])
+gulp.task('default', ['transpile', 'browserify', 'server:start', 'lint'])
