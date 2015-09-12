@@ -68,3 +68,4 @@ var server = app.listen(80, function () {
 
 	console.log('🌎  Blog is up at  http://%s:%s', host, port);
 });
+//# sourceMappingURL=index.js.map
