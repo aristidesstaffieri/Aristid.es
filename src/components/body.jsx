@@ -1,8 +1,6 @@
 import React, {PropTypes, Component} from 'react'
-import Radium from 'radium'
 
-import Router from 'react-router'
-const RouteHandler = Router.RouteHandler
+import Radium from 'radium'
 
 class Body extends Component{
 	constructor(props) {
@@ -13,9 +11,9 @@ class Body extends Component{
 		let {props} = this
 		return (
 			<div style={styles.container}>
-				<div style={styles.postContainer}>
-					<RouteHandler {...props}/>
-				</div>
+				{
+          this.props.articles.map((post, index) => <h1 style={styles.postTitle} onClick={props.clickHandler} key={index}>{ post.title }</h1>)
+        }
 			</div>
 		)
 	}
@@ -30,17 +28,28 @@ const styles = {
 		top: 0,
 		right: 0
 	},
-	postContainer: {
-		marginLeft: '10%'
+	postTitle: {
+		fontFamily: 'Source Sans Pro',
+		fontSize: '3em',
+		color: '#272727',
+	},
+	postDate: {
+		fontSize: '0.8em',
+		color: '#a3a3a3',
+		fontStyle: 'italic',
+		fontFamily: 'Helvetica',
+		fontWeight: 100,
+		marginTop: '-25px',
+
 	}
 }
 
 Body.displayName = 'Body'
-Body.PropTypes = {
-	articles: PropTypes.array
-}
 Body.defaultProps = {
-	articles: []
+  clickHandler: ''
+}
+Body.propTypes = {
+  clickHandler: PropTypes.func.isRequired
 }
 
 export default Radium(Body)

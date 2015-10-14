@@ -1,2 +1,6 @@
-# react-node-isomorphic-blog
-Making a blog using React, Node, Express, Travis and Gulp
+# react-rule-of-72-demo
+A repo for a write up about React components
+
+NPM INSTALL
+
+NPM START

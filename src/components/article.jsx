@@ -1,32 +1,32 @@
-import React, {PropTypes, Component} from 'react'
-import Radium from 'radium'
+import React, { Component, PropTypes } from 'react'
 
-import fs from 'fs'
-import Remarkable from 'remarkable'
-const md = new Remarkable()
-
-class Article extends Component{
-
-	getArticle(articleId) {
-		let article = fs.readFileSync(`./articles/${articleId}.md`, { encoding: 'utf8' })
-		return {
-			id: articleId,
-			content: md.render(article)
-		}
+class Article extends Component {
+  constructor(props) {
+		super(props)
 	}
-	
-	render() {
-		let article = this.getArticle('test_article')
-		return (
-			<div>
-				<div dangerouslySetInnerHTML={{__html: article.content}}>
 
-				</div>
-			</div>
+	render() {
+		let {props} = this
+		return (
+      <div>
+        <div>{this.props.name}</div>
+        <div>{this.props.date}</div>
+        <div>{this.props.content}</div>
+      </div>
 		)
 	}
 }
 
-Article.displayName = 'Article'
+Body.displayName = 'Article'
+Body.defaultProps = {
+  name: '',
+  date: '',
+  content: ''
+}
+Body.propTypes = {
+  name: PropTypes.string,
+  date: PropTypes.string,
+  content: PropTypes.string
+}
 
-export default Radium(Article)
+export default Article
