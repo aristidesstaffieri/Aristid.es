@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import App from './components/Container.jsx'
 
-React.render(<App />, document.getElementById('app-entry'))
+ReactDOM.render(<App articles={window.articles}/>, document.getElementById('app-entry'))

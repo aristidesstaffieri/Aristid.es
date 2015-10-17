@@ -23,8 +23,19 @@ module.exports = {
       },
       {
         test: /\.ejs$/,
-        loader: "ejs-loader?articles=articles" 
-      },
+        loader: "ejs-loader?articles=articles"
+      }
+      // {
+      //   test: /\.css$/, // Only .css files
+      //   loader: 'style!css?modules&localIdentName=[name]---[local]---[hash:base64:5]' // Run both loaders
+      // }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+        "process.env": {
+            BROWSER: JSON.stringify(true)
+        }
+    })
+]
 }
