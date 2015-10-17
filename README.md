@@ -1,2 +1,2 @@
 # Aristid.es
-A blog about the web.
+I'm building a blog that renders on the server and hydrates articles to the client.
