@@ -6,7 +6,7 @@ require('node-jsx').install({
 })
 delete process.env.BROWSER;
 
-import Express from 'express'
+import express from 'express'
 
 import webpack from 'webpack'
 import webpackDevMiddleware from 'webpack-dev-middleware'
@@ -20,10 +20,11 @@ const App = React.createFactory(Container)
 
 import { getArticlesList, getArticle } from './src/utils/postsUtils'
 
-const app = new Express()
+const app = new express()
 const port = 3000
 
 app.set('view engine', 'ejs')
+const router = express.Router()
 
 const compiler = webpack(webpackConfig)
 app.use(webpackDevMiddleware(compiler, { noInfo: true, publicPath: webpackConfig.output.publicPath }))
@@ -31,18 +32,30 @@ app.use(webpackHotMiddleware(compiler))
 
 const articles = getArticlesList()
 
-app.get('/', function(req, res){
-	const markup = ReactDOM.renderToString(App({ articles: articles }))
-	res.render('index.ejs', {
-		markup: markup,
-		articles: JSON.stringify(articles)
-	})
+router.get('/', (req, res) => {
+  const markup = ReactDOM.renderToString(App({ articles: articles, isArticle: false }))
+  res.render('index.ejs', {
+    markup: markup,
+    articles: JSON.stringify(articles)
+  })
 })
 
 // CLIENT APP ROUTE
-app.get('/bundle.js', function(req, res){
+router.get('/bundle.js', (req, res) => {
 	res.send('/dist/bundle.js')
 })
+
+router.get('/:post', (req, res) => {
+  console.log('HERE', req.params)
+  const article = getArticle(req.params.post)
+  const markup = ReactDOM.renderToString(App({ articles: article.content, isArticle: true }))
+  res.render('index.ejs', {
+    markup: markup,
+    articles: JSON.stringify(article.content)
+  })
+})
+
+app.use('/', router)
 
 app.listen(port, (error) => {
   if (error) {

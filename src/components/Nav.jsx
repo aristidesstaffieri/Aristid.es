@@ -5,31 +5,42 @@ class Nav extends Component{
 
 	render() {
 		return (
-			<div style={[styles.container, styles[this.props.transitionClass]]}>
-					<div style={styles.titleContainer}>
-						<h1 style={styles.title}>Aristides</h1>
-					</div>
-					<div style={styles.descContainer}>
-						<h5 style={styles.desc}>A blog about the web.</h5>
-						<div style={styles.connectContainer}>
-							<a href="#" style={styles.iconLink} key="a" ><i style={styles.socialIcon} className="fa fa-twitter" key="1"></i></a>
-							<a href="#" style={styles.iconLink} key="b"><i style={styles.socialIcon} className="fa fa-instagram" key="2"></i></a>
-							<a href="#" style={styles.iconLink} key="c"><i style={styles.socialIcon} className="fa fa-medium" key="3"></i></a>
-							<a href="#" style={styles.iconLink} key="d"><i style={styles.lastIcon} className="fa fa-envelope-o" key="4"></i></a>
+			<div>
+				<div style={styles.container}>
+						<div style={styles.titleContainer}>
+							<h1 style={styles.title}>Aristides</h1>
 						</div>
-					</div>
+						<div style={styles.descContainer}>
+							<h5 style={styles.desc}>A blog about the web.</h5>
+							<div style={styles.connectContainer}>
+								<a href="#" style={styles.iconLink} key="a" ><i style={styles.socialIcon} className="fa fa-twitter" key="1"></i></a>
+								<a href="#" style={styles.iconLink} key="b"><i style={styles.socialIcon} className="fa fa-instagram" key="2"></i></a>
+								<a href="#" style={styles.iconLink} key="c"><i style={styles.socialIcon} className="fa fa-medium" key="3"></i></a>
+								<a href="#" style={styles.iconLink} key="d"><i style={styles.lastIcon} className="fa fa-envelope" key="4"></i></a>
+							</div>
+						</div>
+				</div>
+				<div style={[styles.transitioner, styles[this.props.transitionClass]]}></div>
 			</div>
 		)
 	}
 }
 
 const openCloseAnimation = Radium.keyframes({
-  '0%': { width: '20%' },
+  '0%': { width: '2%' },
   '50%': { width: '100%' },
-  '100%': { width: '20%' }
+  '100%': { width: '2%' }
 })
 
 const styles = {
+	transitioner: {
+		width: '2%',
+		position: 'absolute',
+		top: 0,
+    left: 215,
+		bottom: 0,
+		background: '#272727',
+	},
 	container: {
 		width: '20%',
 		position: 'absolute',

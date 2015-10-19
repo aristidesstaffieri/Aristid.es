@@ -2,7 +2,8 @@ import React, {PropTypes, Component} from 'react'
 import Radium from 'radium'
 
 import Nav from './Nav.jsx'
-import Body from './Body.jsx'
+import ArticleList from './ArticleList.jsx'
+import Article from './Article.jsx'
 
 class App extends Component{
   constructor(props){
@@ -18,16 +19,20 @@ class App extends Component{
   }
 
   clickHandler() {
-    console.log('yo')
     this.setState({ addTransitionClass: 'transition' })
     setTimeout(() => this.setState({ addTransitionClass: '' }), 1000)
   }
 
   render(){
+    const { props, state } = this
     return(
       <div style={style.container}>
-        <Nav transitionClass={this.state.addTransitionClass}/>
-        <Body clickHandler={this.clickHandler} articles={this.props.articles}/>
+        <Nav transitionClass={state.addTransitionClass}/>
+        {
+          props.isArticle
+          ? <Article article={props.articles}/>
+          : <ArticleList clickHandler={this.clickHandler} articles={props.articles} />
+        }
       </div>
     )
   }

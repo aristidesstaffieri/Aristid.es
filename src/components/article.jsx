@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react'
+import Radium from 'radium'
 
 class Article extends Component {
   constructor(props) {
@@ -6,27 +7,44 @@ class Article extends Component {
 	}
 
 	render() {
-		let {props} = this
+		let { props } = this
 		return (
-      <div>
-        <div>{this.props.name}</div>
-        <div>{this.props.date}</div>
-        <div>{this.props.content}</div>
+      <div style={style.containerBody}>
+        <div dangerouslySetInnerHTML={{__html: props.article}}></div>
       </div>
 		)
 	}
 }
 
-Body.displayName = 'Article'
-Body.defaultProps = {
+Article.displayName = 'Article'
+Article.defaultProps = {
   name: '',
   date: '',
   content: ''
 }
-Body.propTypes = {
+Article.propTypes = {
   name: PropTypes.string,
   date: PropTypes.string,
   content: PropTypes.string
 }
 
-export default Article
+const style = {
+  containerBody: {
+	  width: '80%',
+	  height: '500px',
+	  display: 'inline-block',
+	  position: 'absolute',
+	  top: '0',
+	  right: '0'
+	},
+	postTitle: {
+	  fontFamily: 'Source Sans Pro',
+		fontWeight: '900',
+	  fontSize: '3em',
+	  color: '#272727',
+		cursor: 'pointer',
+		marginLeft: '10%'
+	}
+}
+
+export default Radium(Article)
